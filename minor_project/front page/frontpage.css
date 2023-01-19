@@ -1,0 +1,129 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+header{
+ 
+  height:fit-content;
+  background-color: white;
+  width: 100%;
+}
+
+nav {
+  display:flex;
+  align-items: center;
+}
+
+.logo {
+  margin-top: 9px;
+  margin-left: 9px;
+  margin-right: 300.73px;
+
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  color: #fff;
+}
+
+nav ul li a {
+  color: #060a60;
+  display: block;
+  padding: 40.55px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav ul li a:hover {
+  background-color: #007bff;
+}
+
+#login-button {
+  background-color: #007bff;
+}
+
+body{
+  background-color: #E2E7FE;
+
+}
+main{
+  position: fixed;
+  padding-top: 55px;
+}
+h1{
+  position: flex;
+  width: 1093px;
+  height: 200px;
+  margin-left: 47px;
+  font-family: 'Ropa Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 107px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  
+  color: #353535;
+  
+}
+
+.a{
+  background-color: rgba(75, 80, 185, 1);
+  font-family: 'Ropa Sans';
+  color: #ffffff;
+  width:430px;
+}
+.b{
+  background-color: #ffffff;
+  font-family: 'Ropa Sans';
+  color:rgba(75, 80, 185, 1);
+  width: 590px;
+}
+
+p{
+display: flex;
+width: 902px;
+height: 176px;
+margin-left: 47px;
+font-family: 'Ropa Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 40px;
+
+
+display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+
+color: #353535;
+
+}
+
+#start{
+
+  display: inline-block;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 27px;
+  margin-left: 47px;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px 20px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+#start:hover {
+  background-color: #4688dd;
+}
