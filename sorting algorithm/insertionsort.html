@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sorting Algorithm Visualizer</title>
+  <style>
+    #container {
+      display: flex;
+    }
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    header{
+      height:fit-content;
+      background-color: white;
+      width: 100%;
+    }
+    
+    nav {
+      display:flex;
+      align-items: center;
+    }
+    
+    .logo {
+      margin-top: 9px;
+      margin-left: 9px;
+      margin-right: 300.73px;
+    
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav ul li {
+      display: inline-block;
+      color: #fff;
+    }
+    
+    nav ul li a {
+      color: #060a60;
+      display: block;
+      padding: 40.55px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    
+    nav ul li a:hover {
+      background-color: #007bff;
+    }
+    
+    #login-button {
+      background-color: #007bff;
+    }
+    
+    body{
+      background-color: #E2E7FE;
+    
+    }
+    main{
+      position: fixed;
+      padding-top: 80px;
+    }
+    .bar {
+        height: 20px;
+        width: 50px;
+        margin: 5px;
+        background-color: blue;
+        display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+        <a class="logo" href="#home"><img src="images.png" width="181.27px" height="52.98px"></a>
+        <ul>
+                <li><a href="#home" >Home</a></li>
+                <li><a href="#visualizer" >Visualizer</a></li>
+                <li><a href="#learn" >Learn</a></li>
+                <li><a href="#quiz">Take a quiz</a></li>
+                <li><a href="#docu">Documentation</a></li>
+                <li><a href="logins" id="login">login</a></li>
+                </ul>
+            </nav>
+        
+    </header>
+
+<main>
+  <h1>Insertion Sort Algorithm Visualizer</h1>
+  <label for="array-input">Enter array:</label>
+  <input type="text" id="array-input" placeholder="e.g. 4, 2, 1, 5, 3">
+  <button id="random-btn">Random Array</button>
+  <button id="visualize-btn">Visualize</button>
+  <div id="container"></div>
+  <script>
+    let arrayInput = document.getElementById("array-input");
+    let randomBtn = document.getElementById("random-btn");
+    let visualizeBtn = document.getElementById("visualize-btn");
+    randomBtn.addEventListener("click", function() {
+      let array = [];
+      let arraySize = Math.floor(Math.random() * 20) + 5;
+      for (let i = 0; i < arraySize; i++) {
+        array.push(Math.floor(Math.random() * 200) + 5);
+      }
+      arrayInput.value = array.join(",");
+    });
+    visualizeBtn.addEventListener("click", function() {
+      let array = arrayInput.value.split(",").map(Number);
+      let container = document.getElementById("container");
+      container.innerHTML = "";
+     
+      for (let i = 0; i < array.length; i++) {
+        let bar = document.createElement("div");
+        bar.classList.add("bar");
+        bar.style.height = `${array[i]}px`;
+        container.appendChild(bar);
+      }
+      insertionSort(array);
+    });
+    let index = 1;
+
+function insertionSort(arr) {
+    if (index === arr.length) {
+        let message = document.createElement("div");
+        message.innerHTML = "Array is sorted!";
+        message.style.color = "green";
+        container.appendChild(message);
+        return;
+    }
+    let key = arr[index];
+    let j = index - 1;
+    while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j];
+        j--;
+    }
+    arr[j + 1] = key;
+    setTimeout(function() {
+        updateBars(arr, j + 1, index);
+        index++;
+        insertionSort(arr);
+    }, 1000);
+}
+
+function updateBars(arr, currentBar, nextBar) {
+    let bars = document.getElementsByClassName("bar");
+    bars[currentBar].style.height = `${arr[currentBar]}px`;
+    bars[nextBar].style.height = `${arr[nextBar]}px`;
+    bars[currentBar].style.backgroundColor = "blue";
+    bars[nextBar].style.backgroundColor = "blue";
+    setTimeout(function() {
+        bars[currentBar].style.backgroundColor = "green";
+        bars[nextBar].style.backgroundColor = "green";
+    }, 200);
+}
+
+</script>
+</main>
+</body>
+</html>
