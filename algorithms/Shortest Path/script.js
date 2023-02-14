@@ -76,6 +76,7 @@ function visualize(){
 }
 
 function path_choose(nstart){
+    
     let reach_array = new Array();
     let rvalue_array = new Array();
     reach_array = generate_reach_array(nstart);
@@ -120,19 +121,19 @@ function path_choose(nstart){
     console.log("Returned Back");
     if(node_end2.id == 'ValueE'){
         setTimeout(() => {
-            reset_appear();
-        }, 1000);
-        console.log("REACHED THE GOAL");
-        
+            button_appear("reset");
+            alert_prompt("You have reached the goal!", true)
+        }, 2000);
     }else{
         
-        setInterval(() => {
+        setTimeout(() => {
             path_choose(node_end2);
             console.log("Shouldn't be here after goal");
-        }, 3000);
+        }, 2200);
     } 
     console.log("return?");
     stop();
+    return 0;
 }
 
 
@@ -140,6 +141,7 @@ function generate_reach_array(nstart){ // Generated array of reachable nodes
     const id = String(nstart.id.replace(`Value`, ``));
     console.log(`id = ${id}`);
     // Creating a nodes_reach array whose data is fed from the data-reachable attribute from html node values div
+    
     let nodes_reach = new Array();
     let reach = nstart.dataset.reachable;
     // console.log(typeof reach);
@@ -154,7 +156,7 @@ function generate_reach_array(nstart){ // Generated array of reachable nodes
             nodes_reach.push(`${i}_${id}`);
             console.log(`inside ELSEIF condition = `+i);
         }else{
-            alert("You Have Reached The Goal!")
+            alert("You Have Reached The Goal!");
         }
     }console.log(nodes_reach);
     return nodes_reach;
@@ -203,16 +205,24 @@ function reset_ip(){
             i.style.color = "#4B50B9";
         }
     }
+
     cur.length = 0;
     count = 0;
+    button_disappear("reset");
+    button_disappear("visualize");
     console.log("ALL RESET!");
-
 }
 
-
-function alert_prompt(){
+function alert_prompt(msg, status){
     let alert_prompt = document.getElementById("alert");
     let alert_reset = document.getElementById("alert_reset");
+    let alert_h = document.getElementById("alert_h");
+    let alert_msg = document.getElementById("alert_msg");
+
+    if(status == true)alert_h.innerHTML = "SUCCESS!";
+    else alert_h.innerHTML = "ALERT!";
+
+    alert_msg.innerHTML = `${msg}`;
     alert_prompt.style.display = "block";
     alert_reset.removeAttribute("disabled");
     alert_reset.style.cursor = 'pointer';
@@ -221,7 +231,7 @@ function alert_prompt(){
     }, 10);
 }
 
-function alert_prompt_disappear(){
+function alert_prompt_disappear(type){
     console.log("yes");
     let alert_prompt = document.getElementById("alert");
     let alert_reset = document.getElementById("alert_reset");
@@ -231,7 +241,7 @@ function alert_prompt_disappear(){
     setTimeout(() => {
         alert_prompt.style.display = "none";
     }, 400);
-    reset_ip();
+    if(type != "close") reset_ip();
 }
 
 function animate_nodespath(pathID){
@@ -370,25 +380,34 @@ function animate_nodespath(pathID){
         return node_end2;
     }
     catch(err){
-        alert_prompt();
+        alert_prompt("Loop occurred", false);
         console.log(err);
     }  
 }
 
 // Timeout after 3seconds for Reset button appearance
 let reset_button = document.getElementById(`reset`);
-function reset_appear()
+function button_appear(id)
 {
-    reset_button.style.opacity = 1;
-    reset_button.removeAttribute("disabled");
-    reset_button.style.transition = "all 300ms ease-in";
-    reset_button.style.cursor = "pointer";
+    let button = document.getElementById(`${id}`);
+    button.style.opacity = 1;
+    button.removeAttribute("disabled");
+    button.style.transition = "all 300ms ease-in";
+    button.style.cursor = "pointer";
 }
+function button_disappear(id){
+    let button = document.getElementById(`${id}`);
+    button.style.opacity = 0;
+    button.setAttribute("disabled", "");
+    button.style.transition = "all 300ms ease-in";
+    button.style.cursor = "auto";
+}
+
 
 function check_loop(cur, end2){
         for(const i of cur){
             if(i == end2){
-                alert_prompt();
+                alert_prompt("Loop has been encountered!", false);
             }
         }
 }

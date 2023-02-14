@@ -13,9 +13,10 @@
     <script defer src="script.js"></script>
     <h1>Dijkstra's Shortest Path Algorithm</h1><br>
     <div id="alert">
-            <h1>ALERT!</h1>
-            <p><strong>The path you have entered caused an infinite loop!</strong><br><br>Please enter valid path costs</p><br>
-            <button type="button" id="alert_reset" onclick="alert_prompt_disappear()">Reset</button>
+        <button type="button" id="close_alert" onclick="alert_prompt_disappear('close')">X</button>
+        <h1 id="alert_h">ALERT!</h1>
+        <p id="alert_msg"><strong>The path you have entered caused an infinite loop!</strong><br><br>Please enter valid path costs</p><br>
+        <button type="button" id="alert_reset" onclick="alert_prompt_disappear()">Reset</button>
     </div>
     <div style="display: inline-block; vertical-align:top; width: 500px;">
     <div class="ip_pc" style="width: 500px">
@@ -125,7 +126,7 @@
                 <circle class = "frontnode" id="NodeE" cx="816" cy="371" r="27.5" fill="white" stroke="#43A241" stroke-width="5"/>
                 
                 <foreignObject x="791" y="359" width="50px" height="100px">
-                    <div style="color: #43A241" class="node" id="ValueE" xlmns="http://www.w3.org/1999/xhtml">
+                    <div style="color: #43A241" class="node" data-reachable="" id="ValueE" xlmns="http://www.w3.org/1999/xhtml">
                     Goal
                     </div>
             </foreignObject>

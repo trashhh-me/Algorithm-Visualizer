@@ -37,6 +37,8 @@ button{
 button:hover{
     color: white;
     background-color: #4B50B9;
+    transform: translate(0, -3px);
+    cursor: pointer;
 }
 
 #visualize{
@@ -61,7 +63,7 @@ div#alert{
     position: fixed;
     top: 2%;
     left: 50%;
-    background-color: #bdc8fae0;
+    background-color: #bdc8fa70;
     margin-left: -350px;
     text-align: center;
     width: 500px;
@@ -74,10 +76,37 @@ div#alert{
 
 button[id = "alert_reset"]{
     padding: 7px 30px 7px 30px;
-    background-color: #bdc8fae0;
+    background-color: #bdc8fa20;
 }
 button[id = "alert_reset"]:hover{
     background-color: #4B50B9;
     color: white;
     cursor: pointer;
+    transform: translate(0, -3px);
+
+}
+
+button[id = "close_alert"]{
+    all: unset;
+    position: fixed;
+    left: 71.75%;
+    top: 3.25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #4B50B9;
+    color: #4B50B9;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    transition: all 400ms ease;
+}
+
+button[id = "close_alert"]:hover{
+    color: white;
+    background-color: #4B50B9;
+    cursor: pointer;
+    transform: translate(0, -3px);
+    
 }
