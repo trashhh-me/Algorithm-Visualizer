@@ -1,0 +1,25 @@
+Create a loop around visited array and compare with the reachable array of current node to prevent loops. If loop found, just traverse the next reachable node.
+
+Shorten code by putting path cost ips into an array and looping it.
+
+Clean the code, clearing all the redundancies.
+
+If visited.includes(end2) then pop end2 from reachable array 
+
+
+
+need to distinguish and separate a function to generate the end 2
+
+
+
+
+
+
+
+Make a generate_pathID function which generates the right subID // will not do this for now, just leave it in path_choose function 
+
+
+No other way to do this other than removing visited from reachable array
+
+Need to fix wrong items being deleted from the reach_array 
+Also to fix S-1-4-3-2-5-G path (why it gets messed up?)

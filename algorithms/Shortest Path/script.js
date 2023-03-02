@@ -14,52 +14,44 @@ let pc_5_E = document.getElementById("ip_pc_5-E");
 
 
 let count = 0;
-let cur = [];
+let cur = new Array();
+let visited = new Array();
 
 function load_pc(){
-    // if((pc_S_1.value && pc_S_2.value && pc_S_3.value && pc_1_3.value && pc_1_4.value && pc_2_3.value && pc_2_5.value && pc_3_4.value && pc_3_5.value && pc_3_E.value && pc_4_E.value && pc_5_e.value) == "")E
-    //     alert("Please Enter EvEry Path Cost Values!");
-    // }
-    // else{
-        // Insert every inputted value on the path cost space
-        document.getElementById("pc_S-1").innerHTML = pc_S_1.value;
-        document.getElementById("pc_S-2").innerHTML = pc_S_2.value;
-        document.getElementById("pc_S-3").innerHTML = pc_S_3.value;
-        document.getElementById("pc_1-3").innerHTML = pc_1_3.value;
-        document.getElementById("pc_1-4").innerHTML = pc_1_4.value;
-        document.getElementById("pc_2-3").innerHTML = pc_2_3.value;
-        document.getElementById("pc_2-5").innerHTML = pc_2_5.value;
-        document.getElementById("pc_3-4").innerHTML = pc_3_4.value; 
-        document.getElementById("pc_3-5").innerHTML = pc_3_5.value;
-        document.getElementById("pc_3-E").innerHTML = pc_3_E.value;
-        document.getElementById("pc_4-E").innerHTML = pc_4_E.value;
-        document.getElementById("pc_5-E").innerHTML = pc_5_E.value;
+    document.getElementById("pc_S-1").innerHTML = pc_S_1.value;
+    document.getElementById("pc_S-2").innerHTML = pc_S_2.value;
+    document.getElementById("pc_S-3").innerHTML = pc_S_3.value;
+    document.getElementById("pc_1-3").innerHTML = pc_1_3.value;
+    document.getElementById("pc_1-4").innerHTML = pc_1_4.value;
+    document.getElementById("pc_2-3").innerHTML = pc_2_3.value;
+    document.getElementById("pc_2-5").innerHTML = pc_2_5.value;
+    document.getElementById("pc_3-4").innerHTML = pc_3_4.value; 
+    document.getElementById("pc_3-5").innerHTML = pc_3_5.value;
+    document.getElementById("pc_3-E").innerHTML = pc_3_E.value;
+    document.getElementById("pc_4-E").innerHTML = pc_4_E.value;
+    document.getElementById("pc_5-E").innerHTML = pc_5_E.value;
 
-        let visualize = document.getElementById("visualize");
-        
-        setTimeout(
-            function visualize_appear()
-            {
-                visualize.style.opacity = 1;
-                visualize.style.transition = "all 300ms ease-in";
-                visualize.removeAttribute("disabled");
-                visualize.style.cursor = "pointer";
-            }, 1000
-        )
-        
-        let num_ip = document.querySelectorAll("[type = 'number']");
-        // console.log(num_ip[0].value);
-        for(const i of num_ip){
-            if(i.value == ''){
-                i.value = 10;
-                load_pc();
-            }
+    let visualize = document.getElementById("visualize");
+    
+    setTimeout(
+        function visualize_appear()
+        {
+            visualize.style.opacity = 1;
+            visualize.style.transition = "all 300ms ease-in";
+            visualize.removeAttribute("disabled");
+            visualize.style.cursor = "pointer";
+        }, 1000
+    )
+    
+    let num_ip = document.querySelectorAll("[type = 'number']");
+    // console.log(num_ip[0].value);
+    for(const i of num_ip){
+        if(i.value == ''){
+            i.value = 10;
+            load_pc();
         }
-
-    // }
-
+    }
 }
-
 
 // Defining custom attributes in HTML
 // In CSS, we can use any random attribute name
@@ -69,23 +61,53 @@ function visualize(){
     console.log("Entered visualization");
     let start = document.getElementById("ValueS");
     console.log(start.dataset.reachable);
+    // visited.push('S'); // As traversal always starts from node Start
     path_choose(start);
     setTimeout(() => {
         document.getElementById("visualize").setAttribute('disabled', '');
     }, 1000);
 }
 
-function path_choose(nstart){
-    
+// node_end2 -> variable for 2nd end of current traversal
+
+function path_choose(nstart){   
     let reach_array = new Array();
     let rvalue_array = new Array();
-    reach_array = generate_reach_array(nstart);
-    const id = String(nstart.id.replace(`Value`, ``));
-    console.log(`reach array = `+reach_array);
     let ip_value_array = new Array();
     let pcid = 'stringlol';
-    let ct = 0;
-    console.log(typeof pcid);
+    let ct = 0; 
+    const id = String(nstart.id.replace(`Value`, ``));
+
+    console.log('');
+    console.log('');
+    console.log('');
+
+    console.log(`The Visited Array = [${visited}]`);
+    reach_array_all = generate_reach_array(nstart);
+    reach_array = reach_array_all[0]; // has the full reachable node is eg. 1_3, 1_4 
+    reach_array_onlynum = reach_array_all[1]; // has only the reachable node labels eg. 3, 4
+    console.log(`reach array = `+reach_array);
+    console.log(`reach array only num =`+reach_array_onlynum);
+    // if(visited.some(i => reach_array_onlynum.includes(i))){ // helps to check if even one element from visited is present in reach_array_onlynum array
+    //     console.log("there is conflict");
+    //     console.log(i);
+    // }
+    let collision_count = 0; 
+    console.log("Before length: "+reach_array.length);
+    console.log("Before reach_array: "+reach_array);
+    for(let i = 0; i <= reach_array_onlynum.length; i++){
+        for(let j = 0; j <= visited.length; j++){
+            if(reach_array_onlynum[i] == visited[j]){
+                reach_array.splice(i - collision_count, 1);
+                collision_count++; // need to decrease the value of i everytime an element has been deleted, because the array size decreases and if 'i' stays the same, the wrong item will be deleted
+            }
+        }
+        collision_count = 0;
+    }
+    console.log("After length: "+reach_array.length);
+    console.log("After reach_array: "+reach_array);
+
+
     for(const i of reach_array){
         ip_value_array.push(`pc_${i}`);
         pcid = ip_value_array[ct];
@@ -95,6 +117,8 @@ function path_choose(nstart){
 
     // let text = ip_value_array[0];
     // console.log(eval(text + ".value"));
+
+    // Maybe make a separate function for generating subid?
 
     let minpc = rvalue_array[0];
     let nth = 0;
@@ -108,59 +132,80 @@ function path_choose(nstart){
     }
     console.log("minpc = "+ minpc);
     console.log(`${id}_${nth + 1}`);
-    console.log(rvalue_array[nth]);
+    // console.log(rvalue_array[nth]);
     let subid_ip = `S_${reach_array[nth]}`;
-    console.log(subid_ip);
+    // console.log(subid_ip);
 
     let pathsvg = document.querySelector(`[data-subid = "${subid_ip}"]`);
-    console.log(pathsvg);
     console.log("Go to animation");
-    node_end2 = animate_nodespath(pathsvg.id);
+    node_end2 = animate_nodespath(pathsvg.id); // returns the end2 value to node_end2
+
+    
+    console.log("visited nodeID: "+visited);
+    console.log("pathsvg from minpc wala function: "+pathsvg.id);
+    console.log("next nodeID: "+node_end2.id); 
+    
+    if(visited.includes(node_end2.id)){
+        console.log("Reach array before: "+reach_array);
+        reach_array.pop(visited);
+        console.log("Reach array after: "+reach_array);
+        console.log("Fuck youu!!!");
+    }
+    
     console.log(`ID is = ${node_end2.id}`);
     console.log(`id = ${id}`);
+    visited.push(id);
     console.log("Returned Back");
+    console.log("Current array = " + cur);
     if(node_end2.id == 'ValueE'){
         setTimeout(() => {
             button_appear("reset");
-            alert_prompt("You have reached the goal!", true)
-        }, 2000);
+            alert_prompt("You have reached the goal!", true);
+            console.log(`The Visited Array = [${visited}]`);
+        }, 2500);
     }else{
-        
         setTimeout(() => {
             path_choose(node_end2);
-            console.log("Shouldn't be here after goal");
         }, 2200);
     } 
-    console.log("return?");
-    stop();
     return 0;
 }
 
 
 function generate_reach_array(nstart){ // Generated array of reachable nodes
     const id = String(nstart.id.replace(`Value`, ``));
-    console.log(`id = ${id}`);
+    // console.log(`id = ${id}`);
     // Creating a nodes_reach array whose data is fed from the data-reachable attribute from html node values div
-    
+    let reach_all = new Array(); // contains the nodes_reach array plus the nodes_reach_onlynum array
     let nodes_reach = new Array();
+    let nodes_reach_onlynum = new Array();
     let reach = nstart.dataset.reachable;
     // console.log(typeof reach);
     
     for(const i of reach.split(`_`)){ 
     // Forms an array of node values reachable from the start node  (nstart)
-        console.log(i);
+        // console.log(i);
         if((id === "S" || i === "E" || Number(id) < i)){
             nodes_reach.push(`${id}_${i}`);
-            console.log(`inside IF condition = `+i);
+            // console.log(`inside IF condition = `+i);
         }else if(i === "S" || Number(id) >  i ){
             nodes_reach.push(`${i}_${id}`);
-            console.log(`inside ELSEIF condition = `+i);
+            // console.log(`inside ELSEIF condition = `+i);
         }else{
             alert("You Have Reached The Goal!");
         }
-    }console.log(nodes_reach);
-    return nodes_reach;
+        nodes_reach_onlynum.push(i);
+    }
+    reach_all[0] = nodes_reach;
+    reach_all[1] = nodes_reach_onlynum;
+
+    console.log(reach_all[0]);
+    console.log(reach_all[1]);
+
+    // console.log(nodes_reach);
+    return reach_all;
 }
+
 
 function reset_ip(){
     let pc_inputs = document.getElementsByClassName("ip_pc");
@@ -183,18 +228,18 @@ function reset_ip(){
     pc_values[2].innerHTML = "S-3";
     pc_values[1].innerHTML = "S-2";
     pc_values[0].innerHTML = "S-1";
-
-
+    
+    
     for(const i of fnodes){
         i.style.transitionDelay = "0ms";
         i.style.opacity = 1;
     }
-
+    
     for(const i of pfnodes){
         i.style.transitionDelay = "0ms";
         i.style.opacity = 1;
     }
-
+    
     for(const i of nodes){
         i.style.transitionDelay = "0ms";
         if(i.innerHTML == "Start"){
@@ -205,12 +250,17 @@ function reset_ip(){
             i.style.color = "#4B50B9";
         }
     }
-
+    
+    visited.length = 0;
+    console.log(visited);
+    
     cur.length = 0;
     count = 0;
     button_disappear("reset");
     button_disappear("visualize");
     console.log("ALL RESET!");
+    window.location.reload(false);
+
 }
 
 function alert_prompt(msg, status){
@@ -221,14 +271,14 @@ function alert_prompt(msg, status){
 
     if(status == true)alert_h.innerHTML = "SUCCESS!";
     else alert_h.innerHTML = "ALERT!";
-
+    
     alert_msg.innerHTML = `${msg}`;
     alert_prompt.style.display = "block";
     alert_reset.removeAttribute("disabled");
     alert_reset.style.cursor = 'pointer';
     setTimeout(() => {
         alert_prompt.style.opacity = "1";
-    }, 10);
+    }, 400);
 }
 
 function alert_prompt_disappear(type){
@@ -245,58 +295,24 @@ function alert_prompt_disappear(type){
 }
 
 function animate_nodespath(pathID){
-    // let test = document.getElementById("ip_pc_2-5").id.split('_');
-    // console.log(test[2]);
-    // let test1 = test[2].split('-');
-    // console.log(test1[0]);
-    // console.log(test1[1]);
-
-    // // Creating a visited array to detect and prevent loops
-    // let visited = [];
-    // let count = 0; // Index counter for visited array
-
-    // visited[count] = `Node${end1}`;
-    // visited[count + 1] = `Node${end2}`;
-    // console.log(visited);
-    
-    // function visited_iteration(){
-        //     const iterator = visited.values();
-        //     for(let i in iterator){
-            //         console.log(i);
-            //         return i;
-            //     }
-            // }
-            
-            // if(
-                //     (`Node${end1}` || `Node${end2}`) == visited_iteration()
-                // ){
-    //     console.log("YESSS");
-    // }
-    
-    // console.log(circle_node_end1.getAttribute("stroke")); - Works
-    // console.log(circle_node_end1_back.getAttribute("stroke")); - Works
-    
-    
     try{
         let pathID_array = pathID.split("_");
         console.log(count);
-        let end_2 = new String;
-        
+        let end_2 = new String;        
         // The pathID for bidirectional paths are in syntax "L_1_3_1", so their array size must be 4
-        
         if(pathID_array.length == 4 && (cur[count - 1] == pathID_array[2])){
             console.log("This is a bidirectional path!");
             let end2 = pathID_array[3];
             let path = document.getElementById(`${pathID}`);
             let circle_node_end2 = document.getElementById(`Node${end2}`);
             let node_value_end2 = document.getElementById(`Value${end2}`);
-            check_loop(cur, end2);
+            check_loop(end2);
             cur[count] = Number(node_value_end2.innerHTML);
             console.log(String(cur));
 
             // Setting transition times for each element
             // Removing transitions and effects for node_end1 as it had already been deployed in the previous iteration
-
+            
             circle_node_end2.style.transition = "all 500ms ease-in";
             node_value_end2.style.transition = "all 500ms ease-in";
             
@@ -309,11 +325,9 @@ function animate_nodespath(pathID){
             
             circle_node_end2.style.opacity = 0;
             node_value_end2.style.color = "white";
-
+            
             console.log(`end2 =` + end2);  
-            count++;
             end_2 = end2;
-            console.log("if1");
         }else{
             console.log(pathID_array);
             let end1 = pathID_array[1];
@@ -323,14 +337,14 @@ function animate_nodespath(pathID){
             let circle_node_end2 = document.getElementById(`Node${end2}`);
             let node_value_end1 = document.getElementById(`Value${end1}`);
             let node_value_end2 = document.getElementById(`Value${end2}`);
-            check_loop(cur, end2);
+            check_loop(end2);
             cur[count] = Number(node_value_end2.innerHTML);
             console.log(String(cur));
             
             if(cur[count - 1] == Number(node_value_end1.innerHTML)){
-
+                
                 // Removing transitions and effects for node_end1 as it had already been deployed in the previous iteration
-
+                
                 circle_node_end2.style.transition = "all 500ms ease-in";
                 node_value_end2.style.transition = "all 500ms ease-in";
                 
@@ -343,8 +357,7 @@ function animate_nodespath(pathID){
                 
                 circle_node_end2.style.opacity = 0;
                 node_value_end2.style.color = "white";
-            console.log("if2");
-
+                
             }else{
                 // Setting transition times for each element
                 circle_node_end1.style.transition = "all 500ms ease-in";
@@ -368,15 +381,13 @@ function animate_nodespath(pathID){
                 node_value_end2.style.color = "white";
                 circle_node_end2.style.transitionDelay = "1000ms";
                 node_value_end2.style.transitionDelay = "1000ms";
-            console.log("if3");
 
             }
             console.log(`end2 =` + end2); 
-            count++;
             end_2 = end2;
         }
+        count++;
         let node_end2 = document.getElementById(`Value${end_2}`);
-        console.log(node_end2);
         return node_end2;
     }
     catch(err){
@@ -384,6 +395,7 @@ function animate_nodespath(pathID){
         console.log(err);
     }  
 }
+
 
 // Timeout after 3seconds for Reset button appearance
 let reset_button = document.getElementById(`reset`);
@@ -403,8 +415,7 @@ function button_disappear(id){
     button.style.cursor = "auto";
 }
 
-
-function check_loop(cur, end2){
+function check_loop(end2){
         for(const i of cur){
             if(i == end2){
                 alert_prompt("Loop has been encountered!", false);
@@ -416,4 +427,5 @@ function check_loop(cur, end2){
 
 function stop(){
     console.log("Ended");
+
 }

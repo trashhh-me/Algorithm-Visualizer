@@ -17,53 +17,42 @@
         <h1 id="alert_h">ALERT!</h1>
         <p id="alert_msg"><strong>The path you have entered caused an infinite loop!</strong><br><br>Please enter valid path costs</p><br>
         <button type="button" id="alert_reset" onclick="alert_prompt_disappear()">Reset</button>
-    </div>
-    <div style="display: inline-block; vertical-align:top; width: 500px;">
-    <div class="ip_pc" style="width: 500px">
-        <!-- Path Cost Input Fields -->
-        <label for="Path Cost 1" style="margin-left: 5px;"><strong>Path Costs</strong></label><br><br>
+        </div>
+        <div style="display: inline-block; vertical-align:top; width: 500px;">
+        <div class="ip_pc" style="width: 500px">
+            <!-- Path Cost Input Fields -->
+            <label for="Path Cost 1" style="margin-left: 5px;"><strong>Path Costs</strong></label><br><br>
 
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 1" name="Path Cost S-1" id="ip_pc_S-1">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 2" name="Path Cost S-2" id="ip_pc_S-2">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 3" name="Path Cost S-3" id="ip_pc_S-3">
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 1" name="Path Cost S-1" id="ip_pc_S-1">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 2" name="Path Cost S-2" id="ip_pc_S-2">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Start to Node 3" name="Path Cost S-3" id="ip_pc_S-3">
+            <br>
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 1 to Node 3" name="Path Cost 1-3" id="ip_pc_1-3">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 1 to Node 4" name="Path Cost 1-4" id="ip_pc_1-4">
+            <br>
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 2 to Node 3" name="Path Cost 2-3" id="ip_pc_2-3">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 2 to Node 5" name="Path Cost 2-5" id="ip_pc_2-5">
+            <br>
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Node 4" name="Path Cost 3-4" id="ip_pc_3-4">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Node 5" name="Path Cost 3-5" id="ip_pc_3-5">
+            
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Goal" name="Path Cost 3-E" id="ip_pc_3-E">
+            <br>
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 4 to Goal" name="Path Cost 4-E" id="ip_pc_4-E">
+            <br>
+            <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 5 to Goal" name="Path Cost 5-E" id="ip_pc_5-E">
+        </div>
         <br>
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 1 to Node 3" name="Path Cost 1-3" id="ip_pc_1-3">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 1 to Node 4" name="Path Cost 1-4" id="ip_pc_1-4">
-        <br>
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 2 to Node 3" name="Path Cost 2-3" id="ip_pc_2-3">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 2 to Node 5" name="Path Cost 2-5" id="ip_pc_2-5">
-        <br>
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Node 4" name="Path Cost 3-4" id="ip_pc_3-4">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Node 5" name="Path Cost 3-5" id="ip_pc_3-5">
-        
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 3 to Goal" name="Path Cost 3-E" id="ip_pc_3-E">
-        <br>
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 4 to Goal" name="Path Cost 4-E" id="ip_pc_4-E">
-        <br>
-        <input type="number" class="ip_pc" subtype="pathcost" placeholder="Node 5 to Goal" name="Path Cost 5-E" id="ip_pc_5-E">
-    </div>
-    <br>
-    <div class="button">
-        <button type="submit" class="submit" onclick="load_pc()">Load Values</button>
-        <button type="button" id="reset" disabled class="reset" onclick="reset_ip()">Reset</button><br><br>
-        <button type="button" id="visualize" onclick="visualize()" disabled="true">Visualize</button>
-    </div><br>
-    
-    <button onclick="animate_nodespath(`L_S_1`)"></button>
-    <button onclick="animate_nodespath(`L_1_4`)"></button>
-    <button onclick="animate_nodespath(`L_3_4_3`)"></button>
-    <button onclick="animate_nodespath(`L_3_E`)"></button>
-    <button onclick="animate_nodespath(`L_1_3_1`)"></button>
-    <button onclick="alert_prompt()">alert</button>
-    <br><br><br>
-    <button onclick="path_choose()">Choose path</button>
-    <!-- <button onclick="animate_nodespath(`L_4_E`)"></button>
-    <button onclick="animate_nodespath(`L_E_5`)">Invalid</button> -->
+        <div class="button">
+            <button type="submit" class="submit" onclick="load_pc()">Load Values</button>
+            <button type="button" id="reset" disabled class="reset" onclick="reset_ip()">Reset</button><br><br>
+            <button type="button" id="visualize" onclick="visualize()" disabled>Visualize</button>
+        </div><br>
     </div>
 
 
