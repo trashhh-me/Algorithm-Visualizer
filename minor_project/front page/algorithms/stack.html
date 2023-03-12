@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Stack Algorithm Visualizer</title>
+    <style>
+      #stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stack-item {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        background-color: greenyellow;
+        text-align: center;
+        margin: 0;
+      }
+      
+      
+          
+    </style>
+</head>
+<body>
+  <div id="container">
+    <div id="stack"></div>
+    <form id="size-form">
+      <label for="size">Size of Stack:</label>
+      <input type="number" id="size" name="size" value="5">
+      <input type="button" value="Set Size" id="set-size">
+    </form>
+    
+    <input type="text" id="input">
+    <button id="push">Push</button>
+    <button id="pop">Pop</button>
+   
+    <p id="output"></p>
+  </div>
+  
+      
+    <script>
+      let stack = [];
+let size;
+
+// function to set the size of the stack
+function setSize() {
+  size = parseInt(document.querySelector("#size").value);
+  displayOutput(`Size of Stack set to ${size}`);
+}
+
+// function to push an item onto the stack
+function push(item) {
+  if (stack.length === size) {
+    displayOutput("Stack is full (Stack Overflow)");
+  } else {
+    stack.push(item);
+    displayOutput(`Item pushed: ${item}`);
+  }
+}
+
+// function to pop an item from the stack
+function pop() {
+  if (stack.length === 0) {
+    displayOutput("Stack is empty (Stack Underflow)");
+  } else {
+    let item = stack.pop();
+    displayOutput(`Item popped: ${item}`);
+  }
+}
+
+// function to render the stack
+function render() {
+  let stackDiv = document.querySelector("#stack");
+  stackDiv.innerHTML = "";
+  for (let i = stack.length - 1; i >= 0; i--) {
+    let item = document.createElement("div");
+    item.classList.add("stack-item");
+    item.innerHTML = stack[i];
+    stackDiv.appendChild(item);
+  }
+}
+
+// function to display output to the user
+function displayOutput(message) {
+  let output = document.querySelector("#output");
+  output.innerHTML = message;
+}
+
+let setSizeButton = document.querySelector("#set-size");
+setSizeButton.addEventListener("click", setSize);
+
+let pushButton = document.querySelector("#push");
+pushButton.addEventListener("click", function() {
+  let input = document.querySelector("#input");
+  let item = input.value;
+  push(item);
+  render();
+});
+
+let popButton = document.querySelector("#pop");
+popButton.addEventListener("click", function() {
+  pop();
+  render();
+});
+
+    </script>
+</body>
+</html>

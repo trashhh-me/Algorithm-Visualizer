@@ -17,30 +17,29 @@
 <body>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <!-- <div class="logo"><a class="navbar-brand" href="#"><img src="/images/logo.png"alt="Quiz Logo"></a></div> -->
       <div class="logo">
         <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Quiz Logo"></a>
       </div>
       <div class="navi">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./home.html">Home</a>
+            <a class="nav-link" aria-current="page" href="home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./algochooseindex.html">Visualizer</a>
+            <a class="nav-link" href="algochooseindex.html">Visualizer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./learn1.html">Learn</a>
+            <a class="nav-link" href="learn1.html">Learn</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./quiz.html">Take a Quiz</a>
+            <a class="nav-link" href="quiz.html">Take a Quiz</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./Documentation.html">Documentation</a>
+            <a class="nav-link active" href="Documentation.html">Documentation</a>
           </li>
         </ul>
       </div>
-      <form action="./dash1backup.html">
+      <form action="/dash1backup.html">
       <div class="Profile"> <button class="btn"><i style="padding: 10px; justify-content: center;"
             class="fa fa-user"></i>Profile</button></div></form>
     </div>
@@ -52,14 +51,14 @@
       <style>
         h1 {
           text-align: center;
+          color: #4B50B9;
         }
 
         p {
           text-align: center;
         }
       </style>
-      <h1>Choose an algorithm to <a href="algochooseindex.html">visualize</a> </h1>
-      <p>Select the algorithm you want to visualize.</p>
+      <h1>Choose an Algorithm to Learn </h1>
       <div class="row">
         <div class="col col_custom">
           <div class="row g-0">
@@ -78,8 +77,8 @@
                     Out)/FILO(First In Last Out) order.</span><button onclick="myFunction(this)" id="myBtn">Read
                     more</button></p>
                 <!-- <button onclick="myFunction()" id="myBtn">Read more</button> -->
-                <form class="d-flex" action="/stackvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="/resourcesformat/stackres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -88,21 +87,17 @@
         <div class="col col_custom">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="/images/avl-tree.png" style="object-fit: fill;" class="img-fluid rounded-start" alt="Linked List">
+              <img src="/images/ll.png" style="object-fit: fill;" class="img-fluid rounded-start" alt="Linked List">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">AVL Tree</h5>
-                <p class="card-text">AVL Tree can be defined as height balanced binary search tree in which each node is associated with a balance factor which is calculated by subtracting the height of its right sub-tree from that of its left sub-tree.<span id="dots">...</span><span id="more"> Tree is said to be balanced if balance factor of each node is in between -1 to 1, otherwise, the tree will be unbalanced and need to be balanced.
-                  
-                  Balance Factor (k) = height (left(k)) - height (right(k))
-                  If balance factor of any node is 1, it means that the left sub-tree is one level higher than the right sub-tree.
-                  
-                  If balance factor of any node is 0, it means that the left sub-tree and right sub-tree contain equal height.
-                  
-                  If balance factor of any node is -1, it means that the left sub-tree is one level lower than the right sub-tree.</span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="/avlvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <h5 class="card-title">Linked List</h5>
+                <p class="card-text">A Linked List is a linear data structure, in which the elements are not stored at
+                  contiguous memory locations.<span id="dots">...</span><span id="more">In simple words, a linked list
+                    consists of nodes where each node contains a data field and a reference(link) to the next node in
+                    the list.</span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                <form class="d-flex" action="/resourcesformat/llres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -125,8 +120,8 @@
                   according to a comparison operator on the <span id="dots">...</span><span id="more">elements. The
                     comparison operator is used to decide the new order of elements in the respective data
                     structure.</span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="./sortvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/sortres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -150,8 +145,8 @@
                     they repeatedly target the center of the search structure and divide the search space in half. For
                     Example: Binary Search.
                   </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="searchvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/srchres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -188,8 +183,8 @@
 
                     All-pairs shortest path problem, in which we have to find shortest paths between all pairs of
                     vertices in the graph.</span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="shpathvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/sp.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -214,8 +209,8 @@
                     stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
                     No disk may be placed on top of a smaller disk.</span><button onclick="myFunction(this)"
                     id="myBtn">Read more</button></p>
-                <form class="d-flex" action="/tohvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/tohres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
@@ -251,50 +246,13 @@
                     Front: the index where the first element is stored in the array representing the queue.
                     Rear: the index where the last element is stored in an array representing the queue.
                   </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="/queuevisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/stackres.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div class="col col_custom">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="/images/qh.jpg" class="img-fluid rounded-start" alt="Quadratic Hashing">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Quadratic Hashing</h5>
-                <p class="card-text">Hashing is a technique or process of mapping keys, and values into the hash table
-                  by using a hash function. <span id="dots">...</span><span id="more">It is done for faster access to
-                    elements. The efficiency of mapping depends on the efficiency of the hash function used.
-                    Hashing Components:
-
-                    1) Hash Table: An array that stores pointers to records corresponding to a given phone number. An
-                    entry in hash table is NIL if no existing phone number has hash function value equal to the index
-                    for the entry. In simple terms, we can say that hash table is a generalization of array. Hash table
-                    gives the functionality in which a collection of data is stored in such a way that it is easy to
-                    find those items later if required. This makes searching of an element very efficient.
-
-                    2) Hash Function: A function that converts a given big phone number to a small practical integer
-                    value. The mapped integer value is used as an index in hash table. So, in simple terms we can say
-                    that a hash function is used to transform a given key into a specific slot index. Its main job is to
-                    map each and every possible key into a unique slot index. If every key is mapped into a unique slot
-                    index, then the hash function is known as a perfect hash function. It is very difficult to create a
-                    perfect hash function but our job as a programmer is to create such a hash function with the help of
-                    which the number of collisions are as few as possible. Collision is discussed ahead.
-                  </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="/quadratichashvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
         <div class="col col_custom">
           <div class="row g-0">
             <div class="col-md-4">
@@ -322,8 +280,8 @@
                     perfect hash function but our job as a programmer is to create such a hash function with the help of
                     which the number of collisions are as few as possible. Collision is discussed ahead.
                   </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
-                <form class="d-flex" action="/linearhashvisu.html">
-                  <button class="btn" type="submit">Go visualize</button>
+                <form class="d-flex" action="resourcesformat/hash.html">
+                  <button class="btn" type="submit">Get Resources</button>
                 </form>
               </div>
             </div>
