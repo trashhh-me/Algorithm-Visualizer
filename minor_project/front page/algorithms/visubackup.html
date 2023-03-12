@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="visubackup.css">
+    <script src="button.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- <div class="logo"><a class="navbar-brand" href="#"><img src="/images/logo.png"alt="Quiz Logo"></a></div> -->
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Quiz Logo"></a>
+            </div>
+            <div class="navi">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./algochooseindex.html">Visualizer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./quiz.html">Take a Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Documentation.html">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+            <form action="./dash1backup.html">
+            <div class="Profile"> <button class="btn"><i style="padding: 10px; justify-content: center;"
+                        class="fa fa-user"></i>Profile</button></div></form>
+        </div>
+    </nav>
+
+
+    <main style="padding:3rem">
+        <div class="container">
+            <style>
+                h1 {
+                    text-align: center;
+                }
+
+                p {
+                    text-align: center;
+                }
+            </style>
+            <h1>Choose an algorithm to <a href="#">visualize</a> </h1>
+            <p>Select the algorithm you want to visualize.</p>
+            <div class="row">
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/stack.png" class="img-fluid rounded-start" alt="Stack">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Stack</h5>
+                                <p class="card-text">Stack is a linear data structure that follows a particular order in
+                                    which the operations are performed. The order may be <span id="dots">...</span><span
+                                        id="more">LIFO(Last In First Out) or FILO(First In Last Out).There are many
+                                        real-life examples of a stack. Consider an example of plates stacked over one
+                                        another in the canteen. The plate which is at the top is the first one to be
+                                        removed, i.e. the plate which has been placed at the bottommost position remains
+                                        in the stack for the longest period of time. So, it can be simply seen to follow
+                                        LIFO(Last In First Out)/FILO(First In Last Out) order.</span><button
+                                        onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <!-- <button onclick="myFunction()" id="myBtn">Read more</button> -->
+                                <form class="d-flex" action="/stackvisu.html">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/ll.png" style="object-fit: fill;" class="img-fluid rounded-start"
+                                alt="Linked List">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Linked List</h5>
+                                <p class="card-text">A Linked List is a linear data structure, in which the elements are
+                                    not stored at contiguous memory locations.<span id="dots">...</span><span
+                                        id="more">In simple words, a linked list consists of nodes where each node
+                                        contains a data field and a reference(link) to the next node in the
+                                        list.</span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/sort.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Sorting</h5>
+                                <p class="card-text">A sorting algorithm is used to rearrange a given array or list of
+                                    elements according to a comparison operator on the <span id="dots">...</span><span
+                                        id="more">elements. The comparison operator is used to decide the new order of
+                                        elements in the respective data structure.</span><button
+                                        onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex" action="./sortvisu.html">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/sr.png" class="img-fluid rounded-start" alt="Searching">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Searching</h5>
+                                <p class="card-text">Searching algorithms are designed to check for an element or
+                                    retrieve an element from any data structure where it is stored.<span
+                                        id="dots">...</span><span id="more">Based on the type of search operation, these
+                                        algorithms are generally classified into two categories:
+                                        1. Sequential Search: In this, the list or array is traversed sequentially and
+                                        every element is checked. For example: Linear Search.
+                                        2. Interval Search: These algorithms are specifically designed for searching in
+                                        sorted data-structures. These type of searching algorithms are much more
+                                        efficient than Linear Search as they repeatedly target the center of the search
+                                        structure and divide the search space in half. For Example: Binary Search.
+                                    </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/sp.png" class="img-fluid rounded-start" alt="Shortest Path">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Shortest Path</h5>
+                                <p class="card-text">The shortest path problem is about finding a path between vertices
+                                    in a graph such that the total sum of the edges <span id="dots">...</span><span
+                                        id="more">in the path is minimized.
+
+                                        We distinguish several variations of the shortest path problem:
+
+                                        Single-pair shortest path problem, in which we have to find the shortest path
+                                        between a pair of vertices.
+
+                                        Single-source shortest path problem, in which we have to find the shortest pair
+                                        between a pair of vertices.
+
+                                        Single-destination shortest path problem, in which we have to find the shortest
+                                        pair between a pair of vertices.
+
+                                        All-pairs shortest path problem, in which we have to find shortest paths between
+                                        all pairs of vertices in the graph.</span><button onclick="myFunction(this)"
+                                        id="myBtn">Read more</button></p>
+                                <form class="d-flex">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/toh.png" class="img-fluid rounded-start" alt="Tower of Hanoi">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Tower of Hanoi</h5>
+                                <p class="card-text">Tower of Hanoi is a mathematical puzzle where we gave three rods
+                                    (A, B, and C) and N disks. Initially, all the <span id="dots">...</span><span
+                                        id="more">disks are stacked in decreasing value of diameter i.e., the smallest
+                                        disk is placed on the top and they are on rod A. The objective of the puzzle is
+                                        to move the entire stack to another rod (here considered C), obeying the
+                                        following simple rules:
+
+                                        Only one disk can be moved at a time.
+                                        Each move consists of taking the upper disk from one of the stacks and placing
+                                        it on top of another stack i.e. a disk can only be moved if it is the uppermost
+                                        disk on a stack.
+                                        No disk may be placed on top of a smaller disk.</span><button
+                                        onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex" action="/tohvisu.html">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/queue1.jpg" class="img-fluid rounded-start" alt="Queue">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Queue</h5>
+                                <p class="card-text">A Queue is defined as a linear data structure that is open at both
+                                    ends and the operations are performed in First In First Out (FIFO) order. <span
+                                        id="dots">...</span><span id="more">We define a queue to be a list in which all
+                                        additions to the list are made at one end, and all deletions from the list are
+                                        made at the other end. The element which is first pushed into the order, the
+                                        operation is first performed on that.
+
+                                        Characteristics of Queue:
+                                        Queue can handle multiple data.
+                                        We can access both ends.
+                                        They are fast and flexible.
+                                        Queue Representation:
+                                        Like stacks, Queues can also be represented in an array: In this representation,
+                                        the Queue is implemented using the array. Variables used in this case are
+
+                                        Queue: the name of the array storing queue elements.
+                                        Front: the index where the first element is stored in the array representing the
+                                        queue.
+                                        Rear: the index where the last element is stored in an array representing the
+                                        queue.
+                                    </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex" action="/queuevisu.html">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_custom">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/Linear-Probing-1-1.jpg" class="img-fluid rounded-start"
+                                alt="Linear Hashing">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Linear Hashing</h5>
+                                <p class="card-text">Hashing is a technique or process of mapping keys, and values into
+                                    the hash table by using a hash function. <span id="dots">...</span><span
+                                        id="more">It is done for faster access to elements. The efficiency of mapping
+                                        depends on the efficiency of the hash function used.
+                                        Hashing Components:
+
+                                        1) Hash Table: An array that stores pointers to records corresponding to a given
+                                        phone number. An entry in hash table is NIL if no existing phone number has hash
+                                        function value equal to the index for the entry. In simple terms, we can say
+                                        that hash table is a generalization of array. Hash table gives the functionality
+                                        in which a collection of data is stored in such a way that it is easy to find
+                                        those items later if required. This makes searching of an element very
+                                        efficient.
+
+                                        2) Hash Function: A function that converts a given big phone number to a small
+                                        practical integer value. The mapped integer value is used as an index in hash
+                                        table. So, in simple terms we can say that a hash function is used to transform
+                                        a given key into a specific slot index. Its main job is to map each and every
+                                        possible key into a unique slot index. If every key is mapped into a unique slot
+                                        index, then the hash function is known as a perfect hash function. It is very
+                                        difficult to create a perfect hash function but our job as a programmer is to
+                                        create such a hash function with the help of which the number of collisions are
+                                        as few as possible. Collision is discussed ahead.
+                                    </span><button onclick="myFunction(this)" id="myBtn">Read more</button></p>
+                                <form class="d-flex" action="/linearhashvisu.html">
+                                    <button class="btn" type="submit">Go visualize</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">©  Copyright 2023 DSAlgoViz Team, Sagarmatha Engineering College</p>
+          
+              <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+              </a>
+          
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+            </footer>
+          </div>
+    </main>
+
+</body>
+
+</html>

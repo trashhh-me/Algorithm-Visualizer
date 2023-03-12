@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+      width: 500px;
+      height: 40px;
+      background-color: lightgray;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    th {
+      background-color: darkgray;
+      color: white;
+    }
+    .algorithm-step {
+      border: 2px solid blue;
+      padding: 20px;
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      display: none;
+      box-shadow: 0px 0px 10px gray;
+      border-radius: 10px;
+      width: 50%;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: larger;
+    }
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+      font-size: larger;
+    }
+    input {
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-size: larger;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1>Quadratic Probing Hashing Algorithm Visualizer</h1>
+  <p>Enter a data value to insert into the table: <input id="dataInput" type="text"></p>
+  <button id="insertButton">Insert</button>
+  <br><br>
+  <table id="hashTable">
+    <tr>
+      <th>Hash Value</th>
+      <th>Data</th>
+    </tr>
+  </table>
+  <div id="algorithmStep" class="algorithm-step">
+  </div>
+  <script>
+    const numColumns = 10;
+    const hashTable = [];
+
+    for (let i = 0; i < numColumns; i++) {
+      hashTable.push("");
+    }
+
+    const table = document.getElementById("hashTable");
+    for (let i = 0; i < hashTable.length; i++) {
+      const row = table.insertRow();
+      const hashValueCell = row.insertCell();
+      hashValueCell.innerHTML = i;
+      const dataCell = row.insertCell();
+      dataCell.innerHTML = hashTable[i];
+    }
+
+    let hashIndex = 0;
+    let count = 0;
+    const insertData= (data) => {
+        let algorithmStep = "Initializing values:<br>";
+        algorithmStep += `- hashIndex = ${hashIndex}<br>`;
+        algorithmStep += `- count = ${count}<br><br>`;
+        algorithmStep += `- Formula = h i ( K ) = ( H ( K ) + i 2 ) hi(K) = ( H(K) + i^2) hi(K)=(H(K)+i2) % 1 0 10 10 where h i ( K ) hi(K) hi(K) is the next index for the key K<br>`;
+  let hashValue = data % numColumns;
+  algorithmStep += `Computed hash value: ${hashValue}<br><br>`;
+
+
+  while (hashTable[hashValue] !== "") {
+    algorithmStep += `Collision detected at index ${hashValue}.<br>`;
+    hashIndex = (hashValue + count * count) % numColumns;
+    algorithmStep += `Using quadratic probing to find the next available index: ${hashIndex}<br><br>`;
+    hashValue = hashIndex;
+    count++;
+
+    if (count === numColumns) {
+      algorithmStep += `All indices have been checked and no empty index has been found. The data cannot be inserted.<br>`;
+      document.getElementById("algorithmStep").innerHTML = algorithmStep;
+      document.getElementById("algorithmStep").style.display = "block";
+      return;
+    }
+  }
+
+  hashTable[hashValue] = data;
+  algorithmStep += `Inserting data into the hash table at index ${hashValue}.<br>`;
+
+  const table = document.getElementById("hashTable");
+  table.rows[hashValue + 1].cells[1].innerHTML = hashTable[hashValue];
+
+  document.getElementById("algorithmStep").innerHTML = algorithmStep;
+  document.getElementById("algorithmStep").style.display = "block";
+  setTimeout(function() {
+    document.getElementById("algorithmStep").style.display = "none";
+}, 5000);
+};
+
+document.getElementById("insertButton").addEventListener("click", () => {
+  const data = parseInt(document.getElementById("dataInput").value);
+  insertData(data);
+  hashIndex = 0;
+  count = 0;
+});
+</script>
+</body>
+</html>

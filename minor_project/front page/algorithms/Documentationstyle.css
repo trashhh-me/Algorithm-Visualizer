@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background: #E2E7FE; */
+}
+body{
+    font-family: 'Ropa Sans', sans-serif;
+}
+.navbar{
+    background-color: #fefefe;
+    height: 70px;
+}
+.navi{
+    display: flex;
+    position: fixed;
+    margin-left: 35%;
+}
+main{
+    justify-content: center;
+    background-color: #E2E7FE;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.container-fluid{
+    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+}
+.navbar-nav{
+    gap: 35px;
+    color: #4B50B9;
+}
+.btn{
+    border: 2px solid #4B50B9;
+    border-radius: 30px;
+    width: 132px;
+    color: #4B50B9;
+    justify-items: center;
+}
+.col_custom{
+    margin: 20px;
+    padding: 20px;
+    background-color: #BFCAFD;
+    border-radius: 10px;
+}
+.card-text{
+    justify-content: center;
+    text-align: left;
+}
+.col-md-4{
+    align-self: center;
+}
+#more {
+    display:none;
+}
+.logo_def {
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 45px; 
+}   
+
+.logo_hover {
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 45px; 
+    opacity: 0; /* Opacity Works on percentage/100 i.e. 55% = 0.55 */
+    transition: opacity 300ms;
+}
+.logo{
+    position: absolute;
+    margin: top 20px;
+}
+.profile{
+    position: relative;
+    margin-left: 50px;
+}
+.logo_hover:hover {
+    opacity: 1;
+}
+#myBtn{
+    background-color: #BFCAFD;
+    border: 0px;
+    color: gray;
+}
+#more1 {
+    display:none;
+}
+#myBtn1{
+    background-color: #BFCAFD;
+    border: 0px;
+    color: gray;
+}
+/* .nav-tabs{
+padding: 16px 32px;
+} */

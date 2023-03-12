@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./TOHstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center; padding-top: 1rem; color: #4B50B9;" >
+        <H1 >Tower of Hanoi</H1>
+    </div>
+    <div class="settings">
+      <div class="group">
+        <button id="play">Play</button>
+        <button id="next">Next</button>
+        <button id="restart">Reset</button>
+      </div>
+      <div class="group">
+        <label for="number">No of disks</label>
+        <select id="number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+      <div class="group">
+        <label for="speed">Speed</label>
+        <input type="range" id="speed" min="0" max="1000" />
+      </div>
+    </div>
+    <div class="toh-container">
+      <div class="pegs">
+        <div class="peg" data-peg="0"></div>
+        <div class="peg" data-peg="1"></div>
+        <div class="peg" data-peg="2"></div>
+      </div>
+      <div class="disks"></div>
+    </div>
+  </div>
+
+  
+  <script src="./TOH.js"></script>
+</body>
+</html>

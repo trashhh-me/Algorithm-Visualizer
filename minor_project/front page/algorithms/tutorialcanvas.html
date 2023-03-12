@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create the Canvas | Canvas API JavaScript Tutorial</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        #canvas {
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+
+        ctx.beginPath(); //reset the state of the line or shape
+        ctx.strokeStyle = 'rgba(255, 26, 104, 1)';
+        ctx.lineWidth = 10;
+        ctx.moveTo(926/2,601/2); //x horizontal, y vertical in pixels 
+        ctx.lineTo(513, 300.5); // x,y
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(54, 162, 235, 1)';
+        ctx.lineWidth = 10;
+        ctx.moveTo(100,100);
+        ctx.lineTo(300,300);
+        ctx.lineTo(500,100);
+        ctx.lineTo(700,300);
+        ctx.lineTo(900,100);
+        ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.strokeStyle = 'rgba(54, 162, 235, 1)';
+        // ctx.lineWidth = 10;
+        // ctx.moveTo(300,300);
+        // ctx.lineTo(500,100);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.strokeStyle = 'rgba(54, 162, 235, 1)';
+        // ctx.lineWidth = 10;
+        // ctx.moveTo(500,100);
+        // ctx.lineTo(700,300);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.strokeStyle = 'rgba(54, 162, 235, 1)';
+        // ctx.lineWidth = 10;
+        // ctx.moveTo(700,300);
+        // ctx.lineTo(900,100);
+        // ctx.stroke();
+    </script>
+</body>
+</html>
