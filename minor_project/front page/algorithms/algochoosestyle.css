@@ -26,6 +26,11 @@ main{
     gap: 35px;
     color: #4B50B9;
 }
+
+.img-fluid{
+    margin: auto;
+}
+
 .btn{
     border: 2px solid #4B50B9;
     border-radius: 10px;
