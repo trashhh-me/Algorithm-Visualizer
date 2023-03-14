@@ -7,6 +7,8 @@ console.log(img[0].getAttribute("src"));
 for(let i = 0; i < img.length; i++) {
     let ct = new Array(img.length); 
     let img_ct = new Array(img.length); 
+    img_ct[i] = img[i].id.replace('img', '');
+    console.log(img_ct[i]); // This value denotes how many images an algorithm specific card has
     ct.fill(0); // Initializes every cards with img0.png images
     img[i].addEventListener("mouseover", () => {
         // console.log("I am function number" + i);
@@ -32,20 +34,19 @@ for(let i = 0; i < img.length; i++) {
         // img[i].src = "../assets/ChooseAlgo/stack/img1.png";
         
         // let src = img[i].src.toString();
-        img_ct[i] = img[i].id.replace('img', '');
-        console.log(img_ct[i]); // This value denotes how many images an algorithm specific card has
+        ct[i] = 0;
         refreshId = setInterval(() => {
-                if(ct[i] == img_ct[i]-1){
-                    img[i].src = img[i].src.replace(/img\d/, 'img0');
-                    console.log(`ct[${i}]`+ct[i]);
-                    ct[i] = 0;
-                }else{
-                    img[i].src = img[i].src.replace(/img\d/, `img${ct[i] + 1}`);
-                    console.log(`ct[${i}]`+ct[i]);
-                    ct[i]++;
-                }
-            }, 400);   
-        }); 
+            if(ct[i] == img_ct[i]-1){
+                img[i].src = img[i].src.replace(/img\d/, 'img0');
+                console.log(`ct[${i}]`+ct[i]);
+                ct[i] = 0;
+            }else{
+                img[i].src = img[i].src.replace(/img\d/, `img${ct[i] + 1}`);
+                console.log(`ct[${i}]`+ct[i]);
+                ct[i]++;
+            }
+        }, 450);   
+    }); 
     img[i].addEventListener("mouseleave", () => {
         img[i].src = img[i].src.replace(/img\d/, `img0`);
         console.log(img[i].src);
