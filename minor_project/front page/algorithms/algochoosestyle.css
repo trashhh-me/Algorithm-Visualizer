@@ -43,13 +43,21 @@ main{
     border-color: white;
 }
 
-form .btn{
+.btn{
     border: 2px solid #4B50B9;
     padding: 15px 30px 15px 30px;
     border-radius: 10px;
     width: 100%;
     color: #4B50B9;
     transition: all 0.2s ease-in-out;
+}
+
+.login{
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 132px;
+    color: #4B50B9;
+    padding: 8px 5px 8px 5px;
 }
 
 .btn:hover{
@@ -95,5 +103,3 @@ form .btn{
     align-items: center;
     justify-items: center;
 }
-
-.btn    

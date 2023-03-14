@@ -104,10 +104,11 @@
       let size;
       
       function setSize() {
-        size = parseInt(document.querySelector("#size").value);
         if(size == null){
           displayOutput("Size of Stack set to 5 by default!");
+          size = 5;
         }else{
+          size = parseInt(document.querySelector("#size").value);
           displayOutput(`Size of Stack set to ${size}!`);
         }
           
