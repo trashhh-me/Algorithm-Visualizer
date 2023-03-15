@@ -34,13 +34,13 @@ main{
 .img-fluid{
     margin: auto;
     transition: all 0.2s ease-in-out;
-    border: 2px solid #4B50B9;
+    outline: 2.5px solid #4B50B900;
     border-radius: 10px;
-
+    outline-offset: 2.5px;
 }
 
 .img-fluid:hover{
-    border-color: white;
+    outline-color: #4B50B9FF    ;
 }
 
 .btn{
@@ -64,12 +64,17 @@ main{
     color: white;
     background-color: #4B50B9;
 }
-
+.row .doc{
+    display: flex;
+    justify-content: space-between;
+}
 .col_custom{
     margin: 20px;
-    padding: 20px;
+    padding: 5px;
     background-color: #BFCAFD;
-    border-radius: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
 }
 .card-text{
     justify-content: center;
@@ -101,5 +106,9 @@ main{
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+}
+.toptext{
+    margin: 20px 0px 40px 0px;
+    text-align: center;
 }
