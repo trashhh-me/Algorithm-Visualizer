@@ -46,10 +46,14 @@ main{
 .btn{
     border: 2px solid #4B50B9;
     padding: 15px 30px 15px 30px;
-    border-radius: 10px;
     width: 100%;
+    border-radius: 10px;
     color: #4B50B9;
     transition: all 0.2s ease-in-out;
+}
+
+.submit{
+    width: auto;
 }
 
 .login{

@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background: #E2E7FE; */
+}
+body{
+    font-family: 'Ropa Sans', sans-serif;
+}
+.navbar{
+    background-color: #fefefe;
+    height: 70px;
+}
+
+main{
+    /* display: flex;
+    flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    text-align: center;
+    background-color: #E2E7FE;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.container-fluid{
+    background-color: #fefefe;
+    justify-content: center;
+}
+
+.navbar-nav{
+    gap: 35px;
+    color: #4B50B9;
+}
+
+.nav-link{
+    color: #4B50B9;
+}
+
+.btn{
+    border: 2px solid #4B50B9;
+    padding: 15px 30px 15px 30px;
+    width: 100%;
+    border-radius: 10px;
+    color: #4B50B9;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn.submit{
+    width: auto;
+}
+
+.btn.login{
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 132px;
+    color: #4B50B9;
+    padding: 8px 5px 8px 5px;
+}
+
+
+.btn:hover{
+    color: white;
+    /* transform: translate(2px, 2px); */
+    background-color: #4B50B9;
+    /* box-shadow: none; */
+}
+.toptext{
+    margin: 20px 0px 40px 0px;
+    text-align: center;
+}
+
+.card-form{
+    margin: 0 auto;
+    text-align: center;
+    background-color: #BFCAFD;
+    padding: 0px 50px 50px 50px;
+    width: 75%;    
+    border-radius: 10px;
+}
+
+.card-qn{
+    margin: 0 auto;
+    text-align: center;
+    background-color: #BFCAFD;
+    padding: 50px;
+    width: 100%;    
+    border-radius: 10px;
+}
+
+textarea.qn{
+    padding: 10px;
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 80%;
+    height: 100px;
+    outline: 2px solid #4B50B900;
+    outline-offset: 2px;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+}
+
+textarea.qn:focus{
+    outline-color:  #4B50B9FF;
+}
+
+hr{
+    border: 2px dashed #4B50B9;
+    background-color: transparent;
+    width: 100%; 
+    margin: 10px auto 65px auto;
+}
+
+input{
+    padding: 10px;
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 40%;
+    margin: 5px;
+    outline: 2px solid #4B50B900;
+    outline-offset: 2px;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+}
+
+input.valid{
+    width: 4%;
+}
+
+input[type = "radio"]{
+    /* all: unset; */
+    color: #4B50B9;
+}
+
+
+input:focus{
+    outline-color:  #4B50B9FF;
+}
+
+input[type="radio"]:focus{
+    outline: none;
+}
+
+.cpr{
+    margin-top: 30px;
+    text-align: center;
+}
