@@ -21,12 +21,7 @@ main{
     gap: 35px;
     color: #4B50B9;
 }
-.btn{
-    border: 2px solid #4B50B9;
-    border-radius: 10px;
-    width: 132px;
-    color: #4B50B9;
-}
+
 .container{
     background-color: #ffffff;
     width: 2000px;
@@ -37,33 +32,58 @@ main{
     margin-bottom: 25%;
     margin-top: 0%;
 }
-.btn-group-1 button {
-    display: block; /* Make the buttons appear below each other */
-    background-color: #ffffff; 
-    border: 2px solid #4B50B9; 
-    color: #4B50B9; /* White text */
-    padding: 10px 15px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    border-radius: 10px;
-    text-align: left;
-    width: 60.5%;
-     /* Set a width if needed */
-    margin-bottom: 25px;
-    margin-left: 25px;
-  }
-  
-  /* Add a background color on hover */
-  .btn-group-1 button:hover {
-    background-color: #4B50B9;
-    color: #E2E7FE;
-  }
-.btn-group-1{
-    margin-top: 25px;
-    padding-right: 0%;
 
+.layout{
+    display: flex;
+    margin: 20px;
+    gap: 20px;
 }
-.btn2{
-    background-color: #E2E7FE;
-    border: none;
+
+.btnlist{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn{
+    border: 2px solid #4B50B9;
+    padding: 15px 30px 15px 30px;
+    width: 200px;
+    border-radius: 10px;
     color: #4B50B9;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+    /* text-align: center; */
+}
+
+.login{
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 132px;
+    color: #4B50B9;
+    padding: 8px 5px 8px 5px;
+}
+
+.btn.op{
+    align-self: center;
+    padding: 10px 30px 10px 30px;
+}
+
+.btn:hover{
+    color: white;
+    background-color: #4B50B9;
+}
+
+.btn.op:active{
+    transform: translate(0px, 3px);
+    transition-duration: 0.05s;
+}
+
+.btn.op.active{
+    color: white;
+    background-color: #4B50B9;
+}
+
+.vbox{
+    width: 100%;
 }

@@ -1,0 +1,30 @@
+let visu_source = [
+    "stackfinal.html", "avl tree.html", "sort.html", "search.html", "shortest.html", "TOH.html", "queue.html", "hash.html"
+]
+let btnop_list = document.querySelectorAll('div.btnlist > button'); // Is a Node List
+let btnop_array = Array.from(btnop_list); // Converted to an JS Array
+// Selects only those buttons who are children to the div.btnlist tag
+
+let redir_btn = sessionStorage.getItem('btn');
+
+visu(redir_btn);
+
+function visu(redir_btn){
+    let btn_ele = btnop_array[redir_btn];
+    console.log('Redir-btn = '+redir_btn);
+    console.log(btn_ele);
+    console.log(redir_btn);
+    console.log('');
+    document.getElementById("deftext").style.display = 'none';
+    let obj = document.getElementById("obj");
+    obj.data = visu_source[redir_btn];
+    obj.style.display = 'block';
+    btn_ele.setAttribute('class', 'btn op active');
+
+    for(let i = 0; i < btnop_array.length; i++){
+        if(i != redir_btn){
+            console.log(i);
+            btnop_array[i].setAttribute('class', 'btn op');
+        }
+    } // This function removes active class from unrelated or previously clciked buttons
+}

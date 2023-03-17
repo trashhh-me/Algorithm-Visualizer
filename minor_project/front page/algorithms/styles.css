@@ -15,3 +15,10 @@
     stroke: #ccc;
     stroke-width: 2px;
   }
+  *{
+    font-family: 'Ropa Sans', sans-serif;
+  }
+
+input, button{
+  font-size: 15px;
+}
