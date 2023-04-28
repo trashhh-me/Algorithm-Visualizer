@@ -6,9 +6,10 @@ let btnop_array = Array.from(btnop_list); // Converted to an JS Array
 // Selects only those buttons who are children to the div.btnlist tag
 
 let redir_btn = sessionStorage.getItem('btn');
-
-visu(redir_btn);
-
+if(redir_btn != null){
+    visu(redir_btn);
+}
+console.log("NULL OR NOT: "+redir_btn);
 function visu(redir_btn){
     let btn_ele = btnop_array[redir_btn];
     console.log('Redir-btn = '+redir_btn);
