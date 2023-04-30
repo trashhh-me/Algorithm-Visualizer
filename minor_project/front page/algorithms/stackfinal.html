@@ -106,17 +106,19 @@
   
     <script>
       let stack = [];
-      let size;
-      
+      let size = document.getElementById("set-size").value;
+      console.log(size);
       function setSize() {
-        if(size == null){
+      console.log(size);
+
+        if(isNaN(size)){
           displayOutput("Size of Stack set to 5 by default!");
           size = 5;
-        }else{
+        }
+        else{
           size = parseInt(document.querySelector("#size").value);
           displayOutput(`Size of Stack set to ${size}!`);
-        }
-          
+        }   
       }
       
       function push(item) {
@@ -148,8 +150,6 @@
           stackDiv.appendChild(item);
         }
       }
-
-
 
 function showPopup(message) {
   let popup = document.createElement("div");
