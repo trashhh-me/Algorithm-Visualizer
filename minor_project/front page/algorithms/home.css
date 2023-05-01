@@ -27,7 +27,7 @@ body {
 
 main {
     justify-content: center;
-    background-color: #E2E7FE;
+    background-color: #e2e4ff;
     position: relative;
     width: 100%;
     height: 700px;
@@ -40,6 +40,10 @@ main {
 
 .navbar-nav {
     gap: 35px;
+    color: #4B50B9;
+}
+
+.nav-link{
     color: #4B50B9;
 }
 
@@ -57,24 +61,6 @@ main {
     border-radius: 10px;
 }
 
-.logo_def {
-    position: absolute;
-    margin-top: 16px;
-    margin-left: 45px;
-}
-
-.logo_hover {
-    position: absolute;
-    margin-top: 16px;
-    margin-left: 45px;
-    opacity: 0;
-    /* Opacity Works on percentage/100 i.e. 55% = 0.55 */
-    transition: opacity 300ms;
-}
-
-.logo_hover:hover {
-    opacity: 1;
-}
 
 h1 {
     width: 1093px;
@@ -182,4 +168,31 @@ p {
     background-color: #E2E7FE;
     font-size: 22px;
 
+}
+
+
+.btn{
+    border: 2px solid #4B50B9;
+    padding: 15px 30px 15px 30px;
+    width: 100%;
+    border-radius: 10px;
+    color: #4B50B9;
+    transition: all 0.2s ease-in-out;
+}
+
+.login{
+    border: 2px solid #4B50B9;
+    border-radius: 10px;
+    width: 132px;
+    color: #4B50B9;
+    padding: 8px 5px 8px 5px;
+}
+
+.btn:hover{
+    color: white;
+    background-color: #4B50B9;
+}
+.cpr{
+    margin-top: 30px;
+    text-align: center;
 }

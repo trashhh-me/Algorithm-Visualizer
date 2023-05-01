@@ -6,6 +6,6 @@ let choose_array = Array.from(choose_list);
 for(let i = 0; i < choose_array.length; i++){
     choose_array[i].addEventListener("click", () => {
         sessionStorage.setItem('btn', choose_array[i].value);
-        window.location.href = "visupage.html";
+        window.location.href = "t_visupage.html";
     });
 }
