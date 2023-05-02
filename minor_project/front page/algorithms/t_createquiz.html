@@ -12,8 +12,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="navbar.css">
-  <script src="img_animation.js" defer></script>
   <link rel="icon" href="../assets/title_logo.png" type="image/icon type">
+  <script src="quiz.js" defer></script>
   <title >DSAlgoViz - Quiz Creator</title>
 </head>
 
@@ -68,30 +68,55 @@
     </div>
   </nav>
 </body>
-<main style="padding: 3rem">
+<main>
     <div class="toptext">
         <h1 style="color: #353535;">Add Your Quiz Questions</h1>
     </div>
-    <form class="card-form" autocomplete="off" action="">
+    <form class="qn_form" autocomplete="off" onsubmit="resettxt(); return false">
+      <div class="card-form">
         <div class="card-qn">
-            <div class="toptext"><h5>Enter the <span style="color: #4B50B9; text-decoration:underline; text-underline-offset: 3px;">quiz question</span> here:</h5></div>
+            <div class="toptext"><h4>Enter the <span style="color: #4B50B9; text-decoration:underline; text-underline-offset: 3px;">quiz question</span> here:</h4></div>
             <!-- <input type="text" class="qn"><span style="font-size: larger;">&nbsp;&nbsp;&nbsp;&nbsp;?</span> -->
-            <textarea name="qn" id="qn" class="qn"></textarea>
-        </div>
-        <hr class="hr">
-        <div class="card-ops">
-            <div class="toptext"><h5>Enter the <span style="color: #4B50B9; text-decoration:underline; text-underline-offset: 3px;">quiz options</span> here:</h5> <h6>( Check the correct answer )</h6>
+            <textarea name="qn" id="qn" class="qn" placeholder="Enter the question here"></textarea>
+            <h1></h1>
+            <textarea name="qn" id="qn_code" class="qn code" placeholder="Enter any code here if required"></textarea>
+            <pre>
+
+            </pre>
+            <div class="toptext"><h4>Select the <span style="color: #4B50B9; text-decoration:underline; text-underline-offset: 3px;">question type</span> here:</h4></div>
+            <div class="sub_obj">
+              <h5>
+              <div>
+                <input type="radio" name="qn_type" id="sub" class="qn_type" onclick="hide_opt()">
+                <label for="sub">Subjective</label>
+              </div>
+              </h5>
+              <h5>
+              <div>
+                <input type="radio" name="qn_type" id="obj" class="qn_type" onclick="show_opt()">
+                <label for="obj">Objective</label>
+              </div>
+            </h5>
             </div>
-            <ul>
-                <li><input type="text" placeholder="Option 1" name="op1" id="op1"><input type="radio" name="op" class="valid" id="op1"></li><br>
-                <li><input type="text" placeholder="Option 2" name="op2" id="op2"><input type="radio" name="op" class="valid" id="op2"></li><br>
-                <li><input type="text" placeholder="Option 3" name="op3" id="op3"><input type="radio" name="op" class="valid" id="op3"></li><br>
-                <li><input type="text" placeholder="Option 4" name="op4" id="op4"><input type="radio" name="op" class="valid" id="op4"></li><br>
-            </ul>
-        </div> 
+        </div>
+
+        <div id="div_opt" style="display: none;">  <!-- This div collapses or hides depending upon the qn_type selected-->
+          <hr class="hr">
+          <div class="card-ops">
+              <div class="toptext"><h4>Enter the <span style="color: #4B50B9; text-decoration:underline; text-underline-offset: 3px;">quiz options</span> here:</h4> <h6>( Check the correct answer )</h6>
+              </div>
+              <ul>
+                  <li><input type="text" placeholder="Option 1" name="op1" id="op1"><input type="radio" name="opr" class="valid" id="op1"></li><br>
+                  <li><input type="text" placeholder="Option 2" name="op2" id="op2"><input type="radio" name="opr" class="valid" id="op2"></li><br>
+                  <li><input type="text" placeholder="Option 3" name="op3" id="op3"><input type="radio" name="opr" class="valid" id="op3"></li><br>
+                  <li><input type="text" placeholder="Option 4" name="op4" id="op4"><input type="radio" name="opr" class="valid" id="op4"></li><br>
+              </ul>
+          </div> 
+        </div>
+      </div>
+        <button type="submit" id="submit" class="btn submit" onclick="submitqn()">Submit Question</button>
       </form>
-      <button type="submit" id="submit" class="btn submit">Submit Question</button>
-      <!-- Copyright -->
+        <!-- Copyright -->
       <div class="cpr" style="color: #4B50B9;">
         DSAlgoviz Copyright © 2023. All rights reserved.
       </div>
